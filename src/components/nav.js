@@ -12,7 +12,7 @@ const Nav = () => {
   return (
     <div className="navbar navbar-dark bg-dark navbar-expand-lg">
       <div className="container">
-        <a href="#" className="navbar-brand">
+        <a href="/" className="navbar-brand">
           Mostafa Pirddeh
         </a>
         <ul className="navbar-nav">

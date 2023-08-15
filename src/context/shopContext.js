@@ -9,6 +9,6 @@ export const ShopContext = createContext({
 
 export const ShopContxtProvider = (props) => {
   return (
-    <ShopContxtProvider value={useCart()}>{props.children}</ShopContxtProvider>
+    <ShopContext.Provider value={useCart()}>{props.children}</ShopContext.Provider>
   );
 };
