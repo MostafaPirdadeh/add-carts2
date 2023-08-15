@@ -1,7 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState();
+
+  useEffect(() => {
+    const data = localStorage.getItem("Mostafa");
+    setCartItems(!!JSON.parse(data) ? JSON.parse(data) : []);
+  }, []);
+
+  useEffect(() => {
+    if (cartItems !== undefined)
+      localStorage.setItem("Mostafa", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const addToCart = (itemId) => {
     if (!cartItems?.find((item) => item.id === itemId))
       setCartItems([...cartItems, { id: itemId, count: 1 }]);
@@ -23,5 +34,9 @@ export const useCart = () => {
       })
     );
   };
+//   const resetCart = () => {
+//     setCartItems();
+//     localStorage.removeItem("Mostafa");
+//   };
   return { cartItems, addToCart, removeFromCart };
 };

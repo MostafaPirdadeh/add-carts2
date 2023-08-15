@@ -5,12 +5,14 @@ import Shop from './pages/shop/shop';
 import Cart from './pages/cart/cart';
 import Nav from './components/nav';
 import { ShopContxtProvider } from './context/shopContext';
+import Wellcome from './components/welcome';
 function App() {
   return (
     <div className="App">
       <ShopContxtProvider>
       <Router>
         <Nav/>
+        <Wellcome/>
         <Routes>
           <Route path='/' element={<Shop/>}/>
           <Route path='/cart' element={<Cart/>}/>
